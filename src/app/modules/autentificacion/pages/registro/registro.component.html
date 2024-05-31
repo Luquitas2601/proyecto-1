@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <h1>Registrate</h1>
+        <i class="material-icons" style="font-size: 100px;" >person</i>
+        <!--Nombre de usuario-->
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese su Nombre de Usuario</mat-label>
+            <!--ngmode = conecta de forma bidireccional como un formulario-->
+            <input [(ngModel)]="usuario.nombre" matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <!--Apellido de usuario-->
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese su Apellido de Usuario</mat-label>
+            <input [(ngModel)]="usuario.apellido" matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <!--Email del usuario-->
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese su Email de Usuario</mat-label>
+            <input [(ngModel)]="usuario.email" matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <!--rol del usuario-->
+          <mat-form-field>
+            <mat-label>Seleccione un rol</mat-label>
+            <mat-select [(ngModel)]="usuario.rol" required>
+              <mat-option value="admin">Administrador </mat-option>
+              <mat-option value="vis">Visitante</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--contraseña del usuario-->
+          <div class="example-container">
+            <mat-form-field>
+              <mat-label>Enter your password</mat-label>
+              <input [(ngModel)]="usuario.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="c" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-hint text-align="start"> minimo:6/{{input.value.length}} </mat-hint>
+            </mat-form-field>
+            <button mat-raised button color="primary" class="boton" (click)="registrar()" >Registrar</button>
+    </div>
+</div>
