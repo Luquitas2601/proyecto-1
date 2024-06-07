@@ -10,6 +10,16 @@ import { BandaComponent } from './modules/producto/pages/banda/banda.component';
 import { AlbumsComponent } from './modules/producto/pages/albums/albums.component';
 import { PortadasComponent } from './modules/producto/pages/portadas/portadas.component';
 
+
+
+
+
+import { enviroment } from 'src/enviroments/enviroment';
+import{AngularFireAuthModule} from '@angular/fire/compat/auth';
+import{AngularFireModule} from '@angular/fire/compat';
+import{AngularFireStorage, AngularFireStorageModule} from '@angular/fire/compat/storage';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +32,12 @@ import { PortadasComponent } from './modules/producto/pages/portadas/portadas.co
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+
+    AngularFireModule.initializeApp(enviroment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireStorageModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
